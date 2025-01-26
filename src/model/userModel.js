@@ -16,8 +16,17 @@ const attribute = {
     allowNull: false,
   },
   password: {
-    type: DataTypes.TEXT,
+    type: DataTypes.STRING,
     allowNull: false,
+    validate: {
+      len: {
+        args: [8, 16],
+        msg: "Password must be between 8 to 16 characters",
+      },
+      notEmpty: {
+        msg: "Password is required",
+      },
+    },
   },
 };
 
